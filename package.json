@@ -1,0 +1,13 @@
+{
+  "name": "serverless-fauna-netlify-gatsby",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:svirins/serverless-fauna-netlify-gatsby.git",
+  "author": "svirins <svirins@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+
+}
