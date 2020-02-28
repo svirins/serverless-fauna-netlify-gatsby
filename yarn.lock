@@ -850,11 +850,11 @@
   integrity sha512-fxfMSBMX3tlIbKUdtGKxqB1fyrH6gVrX39Gsv3y8lRYKUqlgDt3UMqQyGnR1bQMa2B8aGnhLZokZgg8vT0Le+A==
 
 "@emotion/is-prop-valid@0.8.7":
-  version "0.9.0-next.1"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.9.0-next.1.tgz#448fc5ccd5b4f2293dea67533b3b72e54217ac97"
-  integrity sha512-Hiiu/lmQdkjX31phfY4UPQJ7UjHXue3jhUuqFI39npbpbjGktroB2cLdAUykriLoFxG2ffU/nsFV3cA13I3LyQ==
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.7.tgz#803449993f436f9a6c67752251ea3fc492a1044c"
+  integrity sha512-OPkKzUeiid0vEKjZqnGcy2mzxjIlCffin+L2C02pdz/bVlt5zZZE2VzO0D3XOPnH0NEeF21QNKSXiZphjr4xiQ==
   dependencies:
-    "@emotion/memoize" "0.7.3"
+    "@emotion/memoize" "0.7.4"
 
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.6"
@@ -862,11 +862,6 @@
   integrity sha512-mnZMho3Sq8BfzkYYRVc8ilQTnc8U02Ytp6J1AwM6taQStZ3AhsEJBX2LzhA/LJirNCwM2VtHL3VFIZ+sNJUgUQ==
   dependencies:
     "@emotion/memoize" "0.7.4"
-
-"@emotion/memoize@0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.3.tgz#5b6b1c11d6a6dddf1f2fc996f74cf3b219644d78"
-  integrity sha512-2Md9mH6mvo+ygq1trTeVp2uzAKwE2P7In0cRpD/M9Q70aH8L+rxMLbb3JCN2JoSWsV2O+DdFjfbbXoMoLBczow==
 
 "@emotion/memoize@0.7.4", "@emotion/memoize@^0.7.1":
   version "0.7.4"
@@ -6914,6 +6909,11 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+netlify-identity-widget@^1.5.6:
+  version "1.5.6"
+  resolved "https://registry.yarnpkg.com/netlify-identity-widget/-/netlify-identity-widget-1.5.6.tgz#b841d4d469ad37bdc47e876d87cc2926aba2c302"
+  integrity sha512-DvWVUGuswOd+IwexKjzIpYcqYMrghmnkmflNqCQc4lG4KX55zE3fFjfXziCTr6LibP7hvZp37s067j5N3kRuyw==
 
 nice-try@^1.0.4:
   version "1.0.5"
