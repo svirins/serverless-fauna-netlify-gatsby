@@ -1,15 +1,12 @@
 const React = require("react");
-const { useEffect } = require("react");
-const { useState } = require("react");
 
 const netlifyIdentity = require("netlify-identity-widget");
-
 const IdentityContext = React.createContext({});
 exports.IdentityContext = IdentityContext;
 
 const IdentityProvider = props => {
-  const [user, setUser] = useState();
-  useEffect(() => {
+  const [user, setUser] = React.useState();
+  React.useEffect(() => {
     netlifyIdentity.init({});
     netlifyIdentity.on("login", user => {
       netlifyIdentity.close();
@@ -17,12 +14,11 @@ const IdentityProvider = props => {
     });
     netlifyIdentity.on("logout", () => setUser());
   });
-  return;
-  <IdentityContext.Provider
-    value={{ identify: netlifyIdentity, user: undefined }}
-  >
-    {props.children}
-  </IdentityContext.Provider>;
+  return (
+    <IdentityContext.Provider value={{ identity: netlifyIdentity, user }}>
+      {props.children}
+    </IdentityContext.Provider>
+  );
 };
 
 exports.Provider = IdentityProvider;
