@@ -25,7 +25,7 @@ const resolvers = {
   },
   Mutation: {
     addTodo: (_, { text }) => {
-      let todoIndex = Math.floor(Math.random() * Math.floor(100);
+      let todoIndex = Math.floor(Math.random() * Math.floor(100));
       const id = `key-${todoIndex}`;
       todos[id] = { id, text, done: false };
       return todos[id];
