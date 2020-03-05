@@ -1,5 +1,4 @@
 const React = require("react");
-const wrapRootElement = require("./wrap-root-element");
 const {
   ApolloProvider,
   ApolloClient,
@@ -13,7 +12,8 @@ const wrapRootElement = require("./wrap-root-element");
 
 const authLink = setContext((_, { headers }) => {
   const user = netlifyIdentity.currentUser();
-  const token = token.user.access_token;
+  const token = user.token.access_token;
+  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,

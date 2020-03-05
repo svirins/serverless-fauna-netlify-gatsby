@@ -28,13 +28,19 @@ const resolvers = {
     }
   },
   Mutation: {
-    addTodo: (_, { text }) => {
+    addTodo: (_, { text }, { user }) => {
+      if (!user) {
+        throw new Error("Must be authenticated to insert todos");
+      }
       let todoIndex = Math.floor(Math.random() * Math.floor(100));
       const id = `key-${todoIndex}`;
       todos[id] = { id, text, done: false };
       return todos[id];
     },
-    updateTodoDone: (_, { id }) => {
+    updateTodoDone: (_, { id }, { user }) => {
+      if (!user) {
+        throw new Error("Must be authenticated to insert todos");
+      }
       todos[id].done = true;
       return todos[id];
     }
