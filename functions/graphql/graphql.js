@@ -19,8 +19,12 @@ const typeDefs = gql`
 const todos = {};
 const resolvers = {
   Query: {
-    todos: () => {
-      return Object.values(todos);
+    todos: (parent, args, { user }) => {
+      if (!user) {
+        return [];
+      } else {
+        return Object.values(todos);
+      }
     }
   },
   Mutation: {
@@ -40,7 +44,13 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-
+  context: ({ context }) => {
+    if (context.clientContext.user) {
+      return { user: context.clientContext.user.sub };
+    } else {
+      return {};
+    }
+  },
   // By default, the GraphQL Playground interface and GraphQL introspection
   // is disabled in "production" (i.e. when `process.env.NODE_ENV` is `production`).
   //
