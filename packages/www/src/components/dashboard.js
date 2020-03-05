@@ -12,7 +12,6 @@ import {
 } from "theme-ui";
 import { Router, Link } from "@reach/router";
 import { IdentityContext } from "../../identity-context";
-
 const ADD_TODO = gql`
   mutation AddTodo($text: String!) {
     addTodo(text: $text) {
