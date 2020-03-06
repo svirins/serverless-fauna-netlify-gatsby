@@ -22,16 +22,16 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    todos: (parent, args, { user }) => {
+    todos: async (parent, args, { user }) => {
       if (!user) {
         return [];
       } else {
-        const results = await client.query(q.Paginate(q.Match(q.Index("todos_by_user"),  user)))
-        return results.data.map(([ref,text,done])=>{
-          id: ref.id,
-          text,
-          done
-        })
+        const results = await client.query(
+          q.Paginate(q.Match(q.Index("todos_by_user"), user))
+        );
+        return results.data.map(([ref, text, done]) => {
+          id: ref.id, text, done;
+        });
       }
     }
   },
@@ -39,38 +39,39 @@ const resolvers = {
     addTodo: async (_, { text }, { user }) => {
       if (!user) {
         throw new Error("no user !");
-      } 
-      const results = await client.query(q.Create(q.Collection("todos"), {
-              data: {
-                text: text,
-                done: false,
-                owner: user
-              }
-            })
-      )
+      }
+      const results = await client.query(
+        q.Create(q.Collection("todos"), {
+          data: {
+            text: text,
+            done: false,
+            owner: user
+          }
+        })
+      );
       return {
         ...reuslts.data,
         id: results.ref.id
-      }
+      };
     },
     updateTodoDone: async (_, { id }) => {
       if (!user) {
         throw new Error("no user !");
-      } 
+      }
       const results = await client.query(
-        q.Update(q.Ref(q.Collection("todos"), id), {data: {
-          done: true
-        }
-      })
-      )
+        q.Update(q.Ref(q.Collection("todos"), id), {
+          data: {
+            done: true
+          }
+        })
+      );
       return {
         ...reuslts.data,
         id: results.ref.id
-      }
+      };
     }
   }
 };
-
 
 const server = new ApolloServer({
   typeDefs,
